@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multiple Images with Navigation Buttons</title>
+  </head>
+  <body>
+    <div>
+      <img id="image" src="Everton D18381.jpg" alt="Image 1">
+    </div>
+    <div>
+      <button onclick="previousImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+    <script>
+      var images = ["Everton D18381.jpg", "Everton D18377.jpg", "Everton D18374.jpg", "Everton D18372.jpg", "Everton D18369.jpg", "Everton D18367.jpg", "Everton D18363.jpg", "Everton D18345.jpg"]; // List of image filenames
+      var index = 0; // Index of the current image
+      
+      function previousImage() {
+        index = (index === 0) ? images.length - 1 : index - 1; // Wrap around to the last image if we're at the first one
+        document.getElementById("image").src = images[index]; // Update the image source
+      }
+      
+      function nextImage() {
+        index = (index === images.length - 1) ? 0 : index + 1; // Wrap around to the first image if we're at the last one
+        document.getElementById("image").src = images[index]; // Update the image source
+      }
+    </script>
+  </body>
+</html>
